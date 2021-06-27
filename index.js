@@ -176,7 +176,7 @@ function getValue() {
     }
 
     if (score >= 10) {
-      console.log(chalk.bgblue('Wow! You truely a IPL fan.'))
+      console.log(chalk.bgBlue('Wow! You truely a IPL fan.'))
     } else if (score <= 9 && score >= 5) {
       console.log(chalk.bgMagenta('Ah! You know about IPL, but little.'));
     } else {
