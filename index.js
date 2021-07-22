@@ -19,123 +19,93 @@ console.log('--------------');
 //question list
 let questionList = [
   {
-    question: `When did IPL started?
-   a: 2009
-   b: 2005
-   c: 2008`,
-    answer: 'c'
+    question: 'When did IPL started?',
+    options: ['2009', '2005','2008'],
+    answers: 3
   },
 
   {
-    question: `Who won the inaugural session of IPL?
-   a: MI
-   b: RCB
-   c: RR`,
-    answer: 'c'
+    question:' Who won the inaugural session of IPL?',
+    options: ['MI', 'RCB', 'RR'],
+    answers: 3
   },
 
   {
-    question: `Which team won the most number of titles so far in IPL?
-   a: MI
-   b: KKR
-   c: CSk`,
-    answer: 'a'
+    question: 'Which team won the most number of titles so far in IPL?',
+    options: ['MI', 'KKR', 'CSk'],
+    answers: 1
   },
 
   {
-    question: `Which player scored most runs in IPL so far?
-   a: David Warner
-   b: Virat Kohli
-   c: Suresh Raina`,
-    answer: 'b'
+    question: 'Which player scored most runs in IPL so far?',
+    options: ['David Warner', 'Virat Kohli', 'Suresh Raina'],
+    answers: 2
   },
 
   {
-    question: `Who holds the record of highest individual score in IPL?
-   a: Chris gayle
-   b: Brendon Macculum
-   c: ABD`,
-    answer: 'a'
+    question: 'Who holds the record of highest individual score in IPL?',
+    options: ['Chris gayle', 'Brendon Macculum', 'ABD'],
+    answers: 1
   },
 
   {
-    question: `Which player holds the record of hitting 4 centuries in a single season?
-   a: Chris gayle
-   b: KL rahul
-   c: Virat Kohli`,
-    answer: 'c'
+    question: 'Which player holds the record of hitting 4 centuries in a single season?',
+    options: ['Chris gayle', 'KL rahul', 'Virat Kohli'],
+    answers: 3
   },
 
   {
-    question: `Which player had taken most wickets in ipl so far?
-   a: Lasith malinga
-   b: Jasprit Bumrah
-   c: Amit Mishra`,
-    answer: 'a'
+    question: 'Which player had taken most wickets in ipl so far?',
+    options: ['Lasith malinga', 'Jasprit Bumrah', 'Amit Mishra'],
+    answers: 3
   },
 
   {
-    question: `Who won the emerging player award last year?
-   a: Ruturaj Gaikwad
-   b: Devdutt Padikkal
-   c: Rishabh Pant`,
-    answer: 'b'
+    question: 'Who won the emerging player award in 2020?',
+    options: ['Ruturaj Gaikwad', 'Devdutt Padikkal', 'Rishabh Pant'],
+    answers: 2
   },
 
   {
-    question: `Which player won the orange cap last season?
-   a: Virat Kohli
-   b: David Warner
-   c: KL Rahul`,
-    answer: 'c'
+    question: 'Which player won the orange cap in 2020?',
+    options: ['Virat Kohli', 'David Warner', 'KL Rahul'],
+    answers: 3 
   },
 
   {
-    question: `Which Australian has the best bowling figures in the IPL?
-   a: Andrew Tye
-   b: Adam Jampa
-   c: James Faulkner`,
-    answer: 'b'
+    question: 'Which Australian has the best bowling figures in the IPL?',
+    options: ['Andrew Tye', 'Adam Jampa', 'James Faulkner'],
+    answers: 2
   },
 
   {
-    question: `Who was the captain of the Mumbai Indians in IPL 2012?
-   a: Sachin Tedulkar
-   b: Harbhajan Singh
-   c: Rohit Sharma`,
-    answer: 'b'
+    question: 'Who was the captain of the Mumbai Indians in IPL 2012?',
+    options: ['Sachin Tedulkar', 'Harbhajan Singh', 'Rohit Sharma'],
+    answers: 2
   },
 
   {
-    question: `Which among these players has the joint-most ducks in IPL history alongside Harbhajan Singh?
-   a: Parthiv Patel
-   b: Jaheer Khan
-   c: Rohit Sharma`,
-    answer: 'a'
+    question: 'Which among these players has the joint-most ducks in IPL history alongside Harbhajan Singh?',
+    options: ['Parthiv Patel', 'Jaheer Khan', 'Rohit Sharma'],
+    answers: 1
   },
 
   {
-    question: `Which among these teams has never been involved in a tied game?
-   a: Gujrat Lions
-   b: Chennai Super Kings
-   c: Rising Pune Supergiants`,
-    answer: 'c'
+    question: 'Which among these teams has never been involved in a tied game?',
+    options: ['Gujrat Lions', 'Chennai Super Kings', 'Rising Pune Supergiant'],
+    answers: 3
   },
 
   {
-    question: `Who won the 'Man of the Match' award in the IPL 2008 final?
-   a: Marnus Labushagne
-   b: Msd
-   c: Yusuf Pathan`,
-    answer: 'c'
+    question: 'Who won the \'Man of the Match\' award in the IPL 2008 final?',
+    options: ['Marnus Labushagne', 'Msd', 'Yusuf Pathan'],
+    answers: 3
   },
 
   {
-    question: `Only one bowler has bowled two maiden overs in an IPL game. Who is he?
-   a: Mohammad Siraj
-   b: Jaydev Unadkat
-   c: Shami`,
-    answer: 'a'
+    question: 'Only one bowler has bowled two maiden overs in an IPL game. Who is he?',
+    options: ['Mohammad Siraj', 'Jaydev Unadkat', 'Shami'],
+    answers: 1
   }
   
 ]
@@ -152,12 +122,11 @@ const highestScore = [
   },
 ]
 
-function playGame (questionNumber, question, answer) {
+function playGame (option, question, answer) {
+  
+  let userAnswer = readLineSync.keyInSelect(option,question);
 
-  console.log(chalk.yellowBright(`${questionNumber}. ${question}`));
-  let userAnswer = readLineSync.question('Write your answer here: ');
-
-  if(userAnswer.toLowerCase() === answer) {
+  if(userAnswer + 1 == answer) {
     console.log(chalk.green.bold('You are right'));
     score++;
   } else {
@@ -167,12 +136,11 @@ function playGame (questionNumber, question, answer) {
 }
 
 function getValue() {
-  var questionNumber = 0;
+  
   if (username) {
     for(let i = 0; i < questionList.length; i++) {
-    questionNumber++;
     let myQuestion = questionList[i];
-    playGame(questionNumber, myQuestion.question, myQuestion.answer);
+    playGame(myQuestion.options, myQuestion.question, myQuestion.answers);
     }
 
     if (score >= 10) {
