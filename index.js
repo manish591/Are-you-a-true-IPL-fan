@@ -1,7 +1,6 @@
 const readLineSync = require('readline-sync');
 const chalk = require('chalk');
 
-console.log(chalk.blue('Hello world!'));
 
 //score update
 var score = 0;
@@ -132,6 +131,7 @@ function playGame (option, question, answer) {
   } else {
     console.log(chalk.bold.red('You are wrong!'));
   }
+  console.log(chalk.blue(`Your current score is ${score}.`))
   console.log('--------------');
 }
 
@@ -152,7 +152,7 @@ function getValue() {
  }
 
   console.log('--');
-  console.log(chalk.cyan.bold(`Your score is ${score}. Well Played!`));
+  console.log(chalk.cyan.bold(`Your final score is ${score}. Well Played!`));
   
   for (let j=0; j < highestScore.length; j++) {
     console.log(chalk.blue(`Highest scores are of ${highestScore[j].name} with score ${highestScore[j].score}. `));
