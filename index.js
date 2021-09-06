@@ -56,7 +56,7 @@ let questionList = [
   {
     question: 'Q7: Which player had taken most wickets in ipl so far?',
     options: ['Lasith malinga', 'Jasprit Bumrah', 'Amit Mishra'],
-    answers: 3
+    answers: 1
   },
 
   {
@@ -113,11 +113,11 @@ let questionList = [
 const highestScore = [
   {
     name: 'Prachi',
-    score: '13'
+    score: 12
   },
   {
     name: 'Manish',
-    score: '15'
+    score: 15
   },
 ]
 
@@ -166,3 +166,13 @@ function getValue() {
 
 getValue();
 console.log('--------------');
+
+function hasUserBeatenTheHighScore(userscore) {
+  highestScore.map(people => {
+    if(userscore > people.score) {
+      console.log(chalk.bold(`Oh yes! You've beaten the hign score. Send me screenshot of this and i'll update your name.`));
+    }
+  })
+}
+
+hasUserBeatenTheHighScore(score);
